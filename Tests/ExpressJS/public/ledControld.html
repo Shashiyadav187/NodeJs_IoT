@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Ledcontrol">
+<title>LED Control RGB</title>
+
+<!--CSS Style sheet -->
+<link rel="stylesheet" type="text/css" href="styled.css"> 
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <style>
+        body { padding-top:50px; }
+    </style>
+<!--main functions are in below javascript -->
+<script type="text/javascript" src="app.js"></script>
+</head>
+
+<!--
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip">
+ function getip()
+ {var userip;
+	var ipdiv = document.getElementById("ip");
+ipdiv.innerHTML = "Your IP is :" + userip;}
+</script>
+	
+<script src="https://apis.google.com/js/client.js?onload=checkAuth" gapi_processed="true" >
+
+var geo = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        geo.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    geo.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+-->
+<body>
+<header class="header">
+    <h1 class="header__title">LED Control RGB</h1>
+    <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
+    <button id="butAdd" class="headerButton" aria-label="Add"></button>
+  </header>
+    <main class="main" >
+<p>Select from the Dropdown for Options</p>
+<form action="http://foo.com" method="get">
+			<select id ="ddl" name="ddl" onchange="checkO(this.value);">
+			<option  value=" " ></option>
+			<option  value="Analog" >Analog</option>
+			<option  value="Digital">Digital</option>
+			<option  value="RGB">RGB</option>
+			
+			</select>
+			 <input type="textbox" name="txt" value="" onchange="myFunction(this.value)" placeholder="Enter the no of blink">
+			 
+			<input type="button" onclick="myFunctionV(this.value)" value = "Save">
+			<br></br>
+			
+			
+			<div id="dvA" style="display: none">This is Analog mode
+			<input type="checkbox" id="chkR" onclick="Showcheck()" >LED Analog </input></div>
+			<br></br>
+			<div id="dvR" style="display: none">
+			<input onchange="changeR(this.value)" id="slideR" type="range" min="0" max="255"  default = "0"/>
+			</div>
+			<div id="sliderAmountR"> </div>
+			<br></br>
+			
+			<div id="dvN" style="display: none">This is Digital Mode  <input type="number" min="0" max="1"  default = "0">LED State 0= Off 1= On </input></div>
+			<br></br>
+			
+			<div id ="RGB" style="display: none">
+				<p>This is RGB Mode --- Adjust Slider for selecting your color  </p>
+				<input type="range" id="red" value="255" min="0" max="255"  default = "0" onchange="pick(this.value)">RED</input>
+				<input type="range" id="green" value="255" min="0" max="255"  default = "0" onchange="pick(this.value)">Green</input>
+				<input type="range" id="blue" value="255" min="0" max="255"  default = "0" onchange="pick(this.value)">Blue</input>
+				<input id="submit" class="button" type="button" value="Send to RGB!" onclick="pick()">
+				<br></br>
+				<p id="valRed"></p>
+				<p id="valGreen"></p>
+				<p id="valBlue"></p>
+				<p id="valBlue"></p>
+			</div>
+			
+			<div id="ctverec" style="display: none"> </div>
+		
+			<hr></hr>
+			<input type="button" onclick="Connect" value="Send value to MCU">
+<br>
+
+</form>
+<input type="button" onclick= "getip()" value="Get the IP">
+<p id="ip"></p>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Get your location</button>
+<p id="demo"></p>
+
+
+  <div class="loader">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+      <circle id="ud811Spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div>
+
+</main>
+
+</body>
+</html>

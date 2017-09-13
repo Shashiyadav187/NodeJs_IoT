@@ -1,0 +1,18 @@
+{
+  "name": "exp_t1",
+  "version": "1.0.0",
+  "description": "expressjs_t1",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "luckyhegde",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.4",
+    "pug": "^2.0.0-rc.4"
+  }
+}
